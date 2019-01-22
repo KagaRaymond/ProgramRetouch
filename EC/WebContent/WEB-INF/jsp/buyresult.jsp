@@ -46,7 +46,7 @@
 								<tr>
 									<td class="center">${resultBDB.formatDate}</td>
 									<td class="center">${resultBDB.deliveryMethodName}</td>
-									<td class="center">${resultBDB.totalPrice}円</td>
+									<td class="center">${resultBDB.totalPrice + resultBDB.deliveryMethodPrice}円</td>
 								</tr>
 							</tbody>
 						</table>

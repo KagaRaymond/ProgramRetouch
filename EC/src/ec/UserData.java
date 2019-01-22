@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.BuyDataBeans;
 import beans.UserDataBeans;
+import dao.BuyDAO;
 import dao.UserDAO;
 
 /**
@@ -37,9 +39,14 @@ public class UserData extends HttpServlet {
 			// 入力された内容に誤りがあったとき等に表示するエラーメッセージを格納する
 			String validationMessage = (String) EcHelper.cutSessionAttribute(session, "validationMessage");
 
+			BuyDataBeans bdb = BuyDAO.getBuyDataBeansByBuyId(userId);
 
 			request.setAttribute("validationMessage", validationMessage);
 			request.setAttribute("udb", udb);
+
+			//購入IDによる購入情報をセット
+
+			request.setAttribute("bdb", bdb);
 
 			request.getRequestDispatcher(EcHelper.USER_DATA_PAGE).forward(request, response);
 
@@ -47,6 +54,7 @@ public class UserData extends HttpServlet {
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.toString());
 			response.sendRedirect("Error");
+
 		}
 	}
 
