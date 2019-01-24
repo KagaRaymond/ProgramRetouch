@@ -62,20 +62,14 @@
 								</tr>
 							</thead>
 							<tbody>
-
+							<c:forEach var="userbdb" items="${userbdb}">
 								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=1" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">${bdb.buyDate}</td>
-									<td class="center">${bdb.deliveryMethodName}</td>
-									<td class="center">${bdb.totalPrice + bdb.DeliveryMethodPrice}</td>
+									<td class="center"><a href="UserBuyHistoryDetail?buy_id=${bddb.buyId}" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
+									<td class="center">${userbdb.buyDate}</td>
+									<td class="center">${userbdb.deliveryMethodName}</td>
+									<td class="center">${userbdb.totalPrice + userbdb.deliveryMethodPrice}円</td>
 								</tr>
-								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=2" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">${bdb.buyDate}</td>
-									<td class="center">${bdb.deliveryMethodName}</td>
-									<td class="center">${bdb.totalPrice + bdb.DeliveryMethodPrice}</td>
-								</tr>
-
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

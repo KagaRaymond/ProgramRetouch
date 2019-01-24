@@ -29,9 +29,9 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル</td>
-									<td class="center">123456789円</td>
+									<td class="center">${bdb.buyDate}</td>
+									<td class="center">${bdb.deliveryMethodName}</td>
+									<td class="center">${bdb.totalPrice + bdb.deliveryMethodPrice}円</td>
 								</tr>
 							</tbody>
 						</table>
