@@ -64,7 +64,7 @@
 							<tbody>
 							<c:forEach var="userbdb" items="${userbdb}">
 								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=${bddb.buyId}" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
+									<td class="center"><a href="UserBuyHistoryDetail?buy_id=${userbdb.id}" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
 									<td class="center">${userbdb.buyDate}</td>
 									<td class="center">${userbdb.deliveryMethodName}</td>
 									<td class="center">${userbdb.totalPrice + userbdb.deliveryMethodPrice}円</td>
