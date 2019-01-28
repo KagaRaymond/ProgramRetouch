@@ -39,8 +39,11 @@ public class UserBuyHistoryDetail extends HttpServlet {
 
 			String buyId = request.getParameter("buy_id");
 
-			ArrayList<BuyDataBeans> userbdb = BuyDetailDAO.getBuyDataBeansByUserId(userId);
-			request.setAttribute("userbdb", userbdb);
+//			ArrayList<BuyDataBeans> userbdb = BuyDetailDAO.getBuyDataBeansByUserId(userId);
+//			request.setAttribute("userbdb", userbdb);
+
+			ArrayList<BuyDataBeans> userbdbi = BuyDetailDAO.getBuyDetailDataBeansByBuyId(buyId);
+			request.setAttribute("userbdbi", userbdbi);
 
 
 			BuyDataBeans bdb = BuyDAO.getBuyDataBeansByBuyId(userId);

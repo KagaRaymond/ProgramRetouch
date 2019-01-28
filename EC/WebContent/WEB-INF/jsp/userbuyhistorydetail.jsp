@@ -30,11 +30,15 @@
 								</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="userbdbi" items="${userbdbi}">
 								<tr>
-									<td class="center">${userbdb.buyDate}</td>
-									<td class="center">${userbdb.deliveryMethodName}</td>
-									<td class="center">${userbdb.totalPrice + userbdb.deliveryMethodPrice}円</td>
+									<td class="center">
+										${userbdbi.formatDate}
+									</td>
+									<td class="center">${userbdbi.deliveryMethodName}</td>
+									<td class="center">${userbdbi.totalPrice + userbdbi.deliveryMethodPrice}円</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -60,10 +64,12 @@
 									<td class="center">${userbddb.price}円</td>
 								</tr>
 								</c:forEach>
+								<c:forEach var="userbdbi" items="${userbdbi}">
 								<tr>
-									<td class="center">${userbdb.deliveryMethodName}</td>
-									<td class="center">${userbdb.deliveryMethodPrice}円</td>
+									<td class="center">${userbdbi.deliveryMethodName}</td>
+									<td class="center">${userbdbi.deliveryMethodPrice}円</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

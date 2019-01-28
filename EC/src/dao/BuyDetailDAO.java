@@ -225,6 +225,47 @@ public class BuyDetailDAO {
 		}
 	}
 
+	public static ArrayList<BuyDataBeans> getBuyDetailDataBeansByBuyId(String buyId) throws SQLException {
+		Connection con = null;
+		PreparedStatement st = null;
+
+		try {
+			con = DBManager.getConnection();
+
+			st = con.prepareStatement(
+					"SELECT * FROM t_buy"
+							+ " JOIN m_delivery_method"
+							+ " ON t_buy.delivery_method_id = m_delivery_method.id"
+							+ " WHERE t_buy.id = ?");
+			st.setString(1, buyId);
+
+			ResultSet rs = st.executeQuery();
+			ArrayList<BuyDataBeans> buyDetailsBuyItems = new ArrayList<BuyDataBeans>();
+
+			while (rs.next()) {
+				BuyDataBeans userbdbi = new BuyDataBeans();
+				userbdbi.setDeliveryMethodName(rs.getString("name"));
+				userbdbi.setDeliveryMethodPrice(rs.getInt("price"));
+				userbdbi.setTotalPrice(rs.getInt("total_price"));
+				userbdbi.setBuyDate(rs.getTimestamp("create_date"));
+				buyDetailsBuyItems.add(userbdbi);
+			}
+
+			System.out.println("searching BuyDataBeans by buyID has been completed");
+
+			return buyDetailsBuyItems;
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (con != null) {
+				con.close();
+			}
+		}
+	}
+
+
 
 
 
